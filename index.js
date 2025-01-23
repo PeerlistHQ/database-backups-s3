@@ -80,6 +80,10 @@ async function processBackup() {
         dumpCommand = `mongodump --uri="${databaseURI}" --archive="${filepath}.dump"`;
         versionCommand = 'mongodump --version';
         break;
+      case 'mongodb+srv':
+          dumpCommand = `mongodump --uri="${databaseURI}" --archive="${filepath}.dump"`;
+          versionCommand = 'mongodump --version';
+          break;
       case 'mysql':
         dumpCommand = `mysqldump -u ${dbUser} -p${dbPassword} -h ${dbHostname} -P ${dbPort} ${dbName} > "${filepath}.dump"`;
         versionCommand = 'mysql --version';
